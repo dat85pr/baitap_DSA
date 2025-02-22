@@ -1,20 +1,22 @@
 #include<bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-void testcase(){
-	string s;
-	cin >> s;
-	int dem = 0;
-	for(int i = 0; i < s.size() - 3; i++){
-		for(int j = i + 2; j < s.size() - 1; j++){
-			if(s[i] == s[j] && s[i + 1] == s[j + 1]){
-				dem++;
-			}
-		}
+int main()
+{
+    string s;cin >> s;
+    unordered_map<char, vector<int>> ve;
+    int n = s.size();
+    for(int i = 0; i < n; ++i)
+	{
+		ve[s[i]].push_back(i);
 	}
-	cout << dem;
-}
-int main(){
-	testcase();
-	return 0;
+    int dem = 0;
+    for(char c1 = 'A'; c1 <= 'Z'; ++c1)
+	{
+        for(char c2 = c1 + 1; c2 <= 'Z'; ++c2)
+		{
+            if (ve[c1][0] < ve[c2][0] && ve[c2][0] < ve[c1][1] && ve[c1][1] < ve[c2][1])	++dem;
+			if (ve[c2][0] < ve[c1][0] && ve[c1][0] < ve[c2][1] && ve[c2][1] < ve[c1][1])	++dem;
+        }
+    }
+    cout << dem;
 }
