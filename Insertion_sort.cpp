@@ -3,7 +3,7 @@ using namespace std;
 typedef long long ll;
 
 void insertionSort(int a[], int n){
-	for(int i = 0; i > n; i++){
+	for(int i = 0; i < n; i++){
 		int x = a[i], pos = i - 1;
 		while(pos >= 0 && x < a[pos]){
 			a[pos + 1] = a[pos];
