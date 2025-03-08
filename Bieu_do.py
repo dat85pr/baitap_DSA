@@ -51,11 +51,21 @@ def merge_sort(arr):
             j += 1
             k += 1
 
-sizes = [100, 1000, 5000, 10000, 20000] # Tăng kích thước n
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quick_sort(left) + middle + quick_sort(right)
+
+sizes = [100, 1000, 5000, 10000, 20000]
 bubble_times = []
 insertion_times = []
 selection_times = []
 merge_times = []
+quick_times = []
 
 for n in sizes:
     arr = [random.randint(0, 1000) for _ in range(n)]
@@ -79,10 +89,17 @@ for n in sizes:
     merge_sort(arr_copy)
     merge_times.append(time.time() - start_time)
 
-plt.plot(sizes, bubble_times, label='Bubble Sort')
-plt.plot(sizes, insertion_times, label='Insertion Sort')
+    arr_copy = arr[:]
+    start_time = time.time()
+    quick_sort(arr_copy)
+    quick_times.append(time.time() - start_time)
+
 plt.plot(sizes, selection_times, label='Selection Sort')
+plt.plot(sizes, insertion_times, label='Insertion Sort')
+plt.plot(sizes, bubble_times, label='Bubble Sort')
+plt.plot(sizes, quick_times, label='Quick Sort')
 plt.plot(sizes, merge_times, label='Merge Sort')
+
 plt.xlabel('Kích thước đầu vào (n)')
 plt.ylabel('Thời gian thực thi (giây)')
 plt.title('So sánh thời gian thực thi của các thuật toán sắp xếp')
