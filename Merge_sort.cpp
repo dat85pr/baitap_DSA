@@ -31,11 +31,11 @@ void mergeSort(int a[], int l, int r){
 	merge(a, l, m, r);
 }
 int main(){
-	int n = 100;
-	int a[100];
-	srand(time(NULL));
+	int n;
+	cin >> n;
+	int a[i];
 	for(int i = 0; i < n; i++){
-		a[i] = rand() % 1000;
+		cin >> a[i];
 	}
 	mergeSort(a, 0, n - 1);
 	for(int x : a){
