@@ -22,15 +22,11 @@ void QuickSort(int left, int right){
 }
 
 int main(){	
-	int t;
-	cin >> t;
-	while(t--){
-		int n;
-		cin >> n;
-		for(int i = 0; i < n; i++)cin >> a[i];
-		QuickSort(0, n-1);
-		for(int i = 0; i < n; i++) cout << a[i] << " ";
-		cout << endl;
-	}
+	int n;
+	cin >> n;
+	for(int i = 0; i < n; i++)cin >> a[i];
+	QuickSort(0, n-1);
+	for(int i = 0; i < n; i++) cout << a[i] << " ";
+	cout << endl;
 	return 0;
 }
