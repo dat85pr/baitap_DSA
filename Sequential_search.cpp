@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-bool linear_search(int a[], int n, int x){
+bool sequentialsearch(int a[], int n, int x){
     for(int i = 0; i < n; i++){
         if(a[i] == x)
             return true;
