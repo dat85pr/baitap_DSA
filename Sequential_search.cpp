@@ -1,11 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-bool squentialsearch(int a[], int n){
-	for(int k = 0; k < n; k++){
-		if(x == a[k]) return true;
-	}
-	return false;
+bool linear_search(int a[], int n, int x){
+    for(int i = 0; i < n; i++){
+        if(a[i] == x)
+            return true;
+    }
+    return false;
 }
 int main(){
 	int n, x;
@@ -14,7 +15,7 @@ int main(){
 	for(int i = 0; i < n; i++){
 		cin >> a[i];
 	}
-	bool check = sequentialsearch(a, n);
+	bool check = sequentialsearch(a, n, x);
 	if(check){
 		cout << "FOUND" << endl;
 	}
