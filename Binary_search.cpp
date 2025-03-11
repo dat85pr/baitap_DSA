@@ -20,7 +20,7 @@ bool binary_search(int a[], int n, int x){
 int main(){
     int n, x;
     cin >> n >> x;
-    int a[i];
+    int a[n];
     for(int i = 0; i < n; i++){
     	cin >> a[i];
 	}
