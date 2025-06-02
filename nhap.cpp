@@ -4,20 +4,12 @@ typedef long long ll;
 int m, n, k;
 vector<int> ke[10001];
 bool visited[10001];
-void BFS(int u){
+void DFS(int u){
+    visited[u] = true;
 	cout << u << " ";
-	queue<int> q;
-	q.push(u);
-	visited[u] = true;
-	while(!q.empty()){
-		int v = q.front();
-		q.pop();
-		for(int x : ke[v]){
-			if(!visited[x]){
-				q.push(x);
-				cout << x << " ";
-				visited[x] = true;
-			}
+	for(auto x : ke[u]){
+		if(!visited[x]){
+			DFS(x);
 		}
 	}
 }
@@ -30,10 +22,10 @@ void testcase(){
 		ke[v].push_back(u);
 	}
 	memset(visited, false, sizeof(visited));
-	BFS(k);
+	DFS(k);
 	cout << endl;
 	for(int i = 1; i < m; i++){
-		ke[i].clear();
+	    ke[i].clear();
 	}
 }
 int main(){
